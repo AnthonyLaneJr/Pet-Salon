@@ -64,8 +64,9 @@ function displayPetNames(){
     for(let i=0;i<petSalon.pets.length;i++){
             console.log(petSalon.pets[i][`name`])}
 }
-//function displayNumberOfPets(){
+function displayNumberOfPets(){
 alert(`Number of pets registered in system: ${petSalon.pets.length}`)
+}
 
 
 document.getElementById(`footer`).innerHTML=(`<p>${petSalon[`name`]}</p><p>${petSalon.address[`number`]}  ${petSalon.address[`street`]}  ${petSalon.address[`city`]},   ${petSalon.address[`state`]},  ${petSalon.address[`zip`]}</p><p>Open: ${petSalon.hours[`open`]} - ${petSalon.hours[`close`]}, Mon-Sat</p>`)
