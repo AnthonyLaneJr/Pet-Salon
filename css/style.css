@@ -38,3 +38,12 @@ h2.about-us{
 h4.about-us{
     text-decoration: underline;
 }
+
+
+/* register page */
+
+div.col{
+    background-color: lightgray;
+    margin: 1rem;
+    border: 10px, solid, black;
+}
