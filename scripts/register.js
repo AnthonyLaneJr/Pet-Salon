@@ -60,7 +60,7 @@ function register(){
     //clear the input
     clearInputs();
     console.log(petSalon.pets);
-    displayCards();}
+    displayTable();}
 }
 
 function clearInputs(){
@@ -91,6 +91,6 @@ function displayPetNames(){
 function displayNumberOfPets(){
     alert(`Number of pets registered in system: ${petSalon.pets.length}`)
 }
-displayCards();
+displayTable();
 
 document.getElementById(`footer`).innerHTML=(`<p>${petSalon[`name`]}</p><p>${petSalon.address[`number`]}  ${petSalon.address[`street`]}  ${petSalon.address[`city`]},   ${petSalon.address[`state`]},  ${petSalon.address[`zip`]}</p><p>Open: ${petSalon.hours[`open`]} - ${petSalon.hours[`close`]}, Mon-Sat</p>`)
