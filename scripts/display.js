@@ -34,7 +34,10 @@ function displayCards(){
         let pet = petSalon.pets[i];
         tmp+=`
         <div class="col">
+            <div class="pet-header">
                 <h4>${pet.name}</h4>
+                <button onclick="deletePet()" class="btn btn-secondary">🗑️</button>
+            </div>
                 <p>${pet.age}</p>
                 <p>${pet.gender}</p>
                 <p>${pet.breed}</p>
@@ -52,16 +55,13 @@ function displayTable(){
     for(let i=0;i<petSalon.pets.length;i++){
         let pet = petSalon.pets[i];
         tmp+=`
-            <tr>
-                <th>Name:${pet.name}</th>
-            
-                <td>Age:${pet.age}</td>
-            
-                <td>Gender:${pet.gender}</td>
-            
-                <td>Breed:${pet.breed}</td>
-            
-                <td>Contact Phone:${pet.phone}</td>
+            <tr id="${pet.id}">
+                <td>${pet.name}</td>
+                <td>${pet.age}</td>
+                <td>${pet.gender}</td>
+                <td>${pet.breed}</td>
+                <td>${pet.phone}</td>
+                <td><button onclick="deletePet(${pet.id})" class="btn btn-secondary">🗑️</button></td>
             </tr>
         `
     }

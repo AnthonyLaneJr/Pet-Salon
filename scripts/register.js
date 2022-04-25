@@ -11,6 +11,9 @@ let petSalon= {
         close:`8:00 p.m.`},
     pets:[]
 }
+
+let c=0 //this is a counter var
+
 function Pet(name,age,gender,breed,service,ownerName,contactPhone){
     this.name=name;
     this.age=age;
@@ -19,6 +22,7 @@ function Pet(name,age,gender,breed,service,ownerName,contactPhone){
     this.service=service;
     this.owner=ownerName;
     this.phone=contactPhone;
+    this.id=c++; //increases the var 1 everytime funciton is executed/used. displays as id in console-can add names and other forms of var to the id variable
 }
 //how to get value from input and store info
 let inputName=document.getElementById("txtName");
@@ -72,6 +76,46 @@ function clearInputs(){
     inputOwner.value="";
     inputPhone.value="";
 }
+function deletePet(petId){
+    console.log(`Deleting` + petId);
+    let deleteIndex;
+    //in this function -------
+            for(let i=0;i<petSalon.pets.length;i++){//travel the array (for loop)
+                let pet = petSalon.pets[i];
+                if(petId==pet.id){
+                    //find the ID (if)
+                    //get position in array
+                    deleteIndex=i;
+                    console.log(`I found it in position:` + i);
+                }
+            }  
+            //remove content from the array (splice()) -removed by array position
+            petSalon.pets.splice(deleteIndex,1);
+            //remove content from the html (remove()) -removed by id
+            document.getElementById(petId).remove();
+            //display confirmation message to user   
+}
+
+function searchPet(){
+    //previous actions
+        //add an inpitu search
+        //add a search btn on html
+        //get the string
+        let searchString = document.getElementById(`txtSearch`).value;
+        console.log(`Searching` + searchString);
+  //in this function -------
+            //travel the array (for loop)
+            for(let i=0;i<petSalon.pets.length;i++){
+            let pet = petSalon.pets[i];
+            //find the ID (if)
+            if(searchString.toLowerCase() === pet.name.toLowerCase()){
+            //highlight the result
+            alert(`I found it`);
+            document.getElementById(pet.id).classList.add("highlight");
+            }else{
+            document.getElementById(pet.id).classList.remove("highlight");
+    }}
+}
 
 //existing pets
 let pet1 = new Pet(`Samson`,2,`Male`,`Golden Doodle`,`grooming`,`Anthony`,`###-###-###`);
@@ -93,4 +137,4 @@ function displayNumberOfPets(){
 }
 displayTable();
 
-document.getElementById(`footer`).innerHTML=(`<p>${petSalon[`name`]}</p><p>${petSalon.address[`number`]}  ${petSalon.address[`street`]}  ${petSalon.address[`city`]},   ${petSalon.address[`state`]},  ${petSalon.address[`zip`]}</p><p>Open: ${petSalon.hours[`open`]} - ${petSalon.hours[`close`]}, Mon-Sat</p>`)
+document.getElementById(`footer`).innerHTML=(`<p>${petSalon[`name`]}</p><p>${petSalon.address[`number`]}  ${petSalon.address[`street`]}  ${petSalon.address[`city`]},   ${petSalon.address[`state`]},  ${petSalon.address[`zip`]}</p><p>Open: ${petSalon.hours[`open`]} - ${petSalon.hours[`close`]}, Mon-Sat</p>`);
