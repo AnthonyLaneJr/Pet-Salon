@@ -14,11 +14,12 @@ let petSalon= {
 
 let c=0 //this is a counter var
 
-function Pet(name,age,gender,breed,service,ownerName,contactPhone){
+function Pet(name,age,gender,breed,coatColor,service,ownerName,contactPhone){
     this.name=name;
     this.age=age;
     this.gender=gender;
     this.breed=breed;
+    this.color=coatColor
     this.service=service;
     this.owner=ownerName;
     this.phone=contactPhone;
@@ -29,6 +30,7 @@ let inputName=document.getElementById("txtName");
 let inputAge=document.getElementById("txtAge");
 let inputGender=document.getElementById("txtGender");
 let inputBreed=document.getElementById("txtBreed");
+let inputColor=document.getElementById(`color`);
 let inputService=document.getElementById("selService");
 let inputOwner=document.getElementById("txtOwner");
 let inputPhone=document.getElementById("tel");
@@ -56,7 +58,7 @@ function isValid(aPet){    //returns false when the pet is not valid, returns tr
 
 function register(){
     //create pet
-    let thePet = new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value,inputOwner.value,inputPhone.value,);
+    let thePet = new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputColor.value,inputService.value,inputOwner.value,inputPhone.value);
     if(isValid(thePet)){ //ensure that the isValid function is true before publishing to array 
     console.log(thePet);
     //push into array
@@ -72,6 +74,7 @@ function clearInputs(){
     inputAge.value="";
     inputGender.value="";
     inputBreed.value="";
+    inputColor.value=``;
     inputService.value="";
     inputOwner.value="";
     inputPhone.value="";
@@ -118,9 +121,9 @@ function searchPet(){
 }
 
 //existing pets
-let pet1 = new Pet(`Samson`,2,`Male`,`Golden Doodle`,`grooming`,`Anthony`,`###-###-###`);
-let pet2 = new Pet(`Bailey`,12,`Female`,`Pitbull`,`Nails trimmed`,`Matthew`,`702-###-####`);
-let pet3 = new Pet(`Summer Moon`,9,`Female`,`Husky`,`Grooming`,`Rowen`,`805-###-####`);
+let pet1 = new Pet(`Samson`,2,`Male`,`Golden Doodle`,`Cream`,`grooming`,`Anthony`,`###-###-###`);
+let pet2 = new Pet(`Bailey`,12,`Female`,`Pitbull`,`Brown`,`Nails trimmed`,`Matthew`,`702-###-####`);
+let pet3 = new Pet(`Summer Moon`,9,`Female`,`Husky`,`Black`,`Grooming`,`Rowen`,`805-###-####`);
 petSalon.pets.push(pet1,pet2,pet3);
 
 console.log(petSalon);

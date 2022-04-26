@@ -60,6 +60,7 @@ function displayTable(){
                 <td>${pet.age}</td>
                 <td>${pet.gender}</td>
                 <td>${pet.breed}</td>
+                <td>${pet.color}</td>
                 <td>${pet.phone}</td>
                 <td><button onclick="deletePet(${pet.id})" class="btn btn-secondary">🗑️</button></td>
             </tr>
